@@ -2,12 +2,16 @@ package com.test.starwarsmovies;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -35,12 +39,10 @@ public class FilmsAdapter extends RecyclerView.Adapter<FilmsAdapter.FilmViewHold
     public void onBindViewHolder(FilmViewHolder holder, int position) {
         Film film = filmList.get(position);
         holder.title.setText(film.getTitle());
-        holder.openingCrawl.setText(film.getOpeningCrawl());
         holder.director.setText("Directed by : "+ film.getDirector());
-        //Picasso.with(context).load(film.getReporter().getAvatarURL()).into(holder.reporterImage);
 
         if (film.getRelease_date() != null && film.getRelease_date() != "") {
-            holder.releaseDate.setText(film.getRelease_date());
+            holder.releaseDate.setText(Utility.getReleaseDate(film.getRelease_date()));
 
         }
     }
@@ -55,19 +57,20 @@ public class FilmsAdapter extends RecyclerView.Adapter<FilmsAdapter.FilmViewHold
     }
 
     public class FilmViewHolder extends RecyclerView.ViewHolder {
-        public TextView title, openingCrawl, releaseDate, director;
-        public ImageView reporterImage;
+        public TextView title, releaseDate, director;
 
         public FilmViewHolder(View view) {
             super(view);
             title = (TextView) view.findViewById(R.id.film_title_textview);
-            openingCrawl = (TextView) view.findViewById(R.id.opening_crawl_textview);
             releaseDate = (TextView) view.findViewById(R.id.release_date_textview);
             director = (TextView) view.findViewById(R.id.film_director_textview);
-            reporterImage = (ImageView) view.findViewById(R.id.reporter_image_view);
+
+            Fonts.getSharedFontsManager().setFont(context, title, Fonts.BANDY_REGULAR);
+            Fonts.getSharedFontsManager().setFont(context, director, Fonts.BANDY_REGULAR);
+            Fonts.getSharedFontsManager().setFont(context, releaseDate, Fonts.CATHERINE);
+
         }
     }
-
 
 
 }

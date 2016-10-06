@@ -3,13 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    android:padding="@dimen/film_view_padding">
+    android:padding="@dimen/film_view_padding"
+    android:background="#DDDDDD">
     
     <ImageView
         android:id="@+id/reporter_image_view"
         android:layout_width="@dimen/movie_image_size"
         android:layout_height="@dimen/movie_image_size"
-        android:src="@mipmap/ic_launcher"
+        android:src="@drawable/movie_icon"
         android:layout_margin="@dimen/movie_image_margin"/>
 
     <RelativeLayout
@@ -21,23 +22,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="@dimen/textview_padding_5"
-            android:textStyle="bold" />
-
-
-        <TextView
-            android:id="@+id/opening_crawl_textview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/textview_padding_5"
-            android:layout_below="@id/film_title_textview"/>
+            android:textStyle="bold"
+            android:textSize="18sp"/>
 
         <TextView
             android:id="@+id/film_director_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="@dimen/textview_padding_5"
-            android:layout_below="@id/opening_crawl_textview"
-            android:textColor="@android:color/holo_green_dark"/>
+            android:layout_below="@id/film_title_textview"
+            android:textColor="#3c3c41"/>
 
         <TextView
             android:id="@+id/release_date_textview"

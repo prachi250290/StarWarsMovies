@@ -2,14 +2,18 @@ package com.test.starwarsmovies;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.EditText;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -48,13 +52,12 @@ public class MainActivity extends Activity {
         mLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
         recyclerView.setAdapter(filmAdapter);
         recyclerView.addOnScrollListener(recyclerViewOnScrollListener);
         recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), recyclerView, new ClickListener() {
             @Override
             public void onClick(View view, int position) {
-
+                openFilmDetailScreen(filmList.get(position));
             }
 
             @Override
@@ -65,6 +68,23 @@ public class MainActivity extends Activity {
 
         Utility.showProgressDialog(this, getString(R.string.progress_dialog_msg));
         fetchFilms(pageNumber);
+
+
+
+    }
+
+    /*
+    *Opens the Film Detail Page
+     */
+    private void openFilmDetailScreen(Film film) {
+        Intent filmDetailIntent = new Intent(MainActivity.this, FilmDetailActivity.class);
+        filmDetailIntent.putExtra(Constants.INTENT_KEY_FILM_TITLE, film.getTitle());
+        filmDetailIntent.putExtra(Constants.INTENT_KEY_OPENING_CRAWL, film.getOpeningCrawl());
+        filmDetailIntent.putExtra(Constants.INTENT_KEY_FILM_RELEASE_DATE, film.getRelease_date());
+        filmDetailIntent.putExtra(Constants.INTENT_KEY_FILM_DIRECTOR, film.getDirector());
+        filmDetailIntent.putExtra(Constants.INTENT_KEY_FILM_PRODUCER, film.getProducer());
+        startActivity(filmDetailIntent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
     public interface ClickListener {

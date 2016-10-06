@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">StarWarsMovies</string>
     <string name="progress_dialog_msg">Fetching movie list...</string>
+    <string name="title_activity_film_detail">FilmDetailActivity</string>
 </resources>
