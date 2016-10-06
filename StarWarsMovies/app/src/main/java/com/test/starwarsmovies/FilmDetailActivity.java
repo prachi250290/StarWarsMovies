@@ -17,14 +17,7 @@ public class FilmDetailActivity extends Activity {
 
         setFonts();
 
-        Bundle extras = getIntent().getExtras();
-        if(extras != null) {
-            titleTextView.setText(extras.getString(Constants.INTENT_KEY_FILM_TITLE));
-            directorTextView.setText("Directed by " + extras.getString(Constants.INTENT_KEY_FILM_DIRECTOR));
-            releaseDateTextView.setText("Released on " + extras.getString(Constants.INTENT_KEY_FILM_RELEASE_DATE));
-            openingCrawlTextView.setText(extras.getString(Constants.INTENT_KEY_OPENING_CRAWL));
-            producerTextView.setText("Produced by " + extras.getString(Constants.INTENT_KEY_FILM_PRODUCER));
-        }
+        setValues();
     }
 
     private void initializeViews() {
@@ -42,6 +35,17 @@ public class FilmDetailActivity extends Activity {
         Fonts.getSharedFontsManager().setFont(this, releaseDateTextView, Fonts.BANDY_REGULAR);
         Fonts.getSharedFontsManager().setFont(this, producerTextView, Fonts.BANDY_REGULAR);
 
+    }
+
+    private void setValues() {
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            titleTextView.setText(extras.getString(Constants.INTENT_KEY_FILM_TITLE));
+            directorTextView.setText("Directed by " + extras.getString(Constants.INTENT_KEY_FILM_DIRECTOR));
+            releaseDateTextView.setText("Released on " + extras.getString(Constants.INTENT_KEY_FILM_RELEASE_DATE));
+            openingCrawlTextView.setText(extras.getString(Constants.INTENT_KEY_OPENING_CRAWL));
+            producerTextView.setText("Produced by " + extras.getString(Constants.INTENT_KEY_FILM_PRODUCER));
+        }
     }
 
 }

@@ -2,7 +2,6 @@ package com.test.starwarsmovies;
 
 import android.app.ProgressDialog;
 import android.content.Context;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -34,7 +33,6 @@ public class Utility {
             progressDialog.cancel();
         }
     }
-
 
 
     public static String getReleaseDate(String releaseDate) {

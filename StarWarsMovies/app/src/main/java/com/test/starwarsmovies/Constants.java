@@ -5,7 +5,6 @@ package com.test.starwarsmovies;
  */
 public class Constants {
 
-
     public static final String INTENT_KEY_FILM_TITLE = "title";
     public static final String INTENT_KEY_FILM_DIRECTOR = "director";
     public static final String INTENT_KEY_FILM_RELEASE_DATE = "releaseDate";

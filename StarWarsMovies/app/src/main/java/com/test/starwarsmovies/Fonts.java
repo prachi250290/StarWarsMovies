@@ -7,7 +7,6 @@ import android.widget.TextView;
 
 public class Fonts {
 
-
     public static final int BANDY_REGULAR = 0;
     public static final int CATHERINE = 1;
 
@@ -34,7 +33,6 @@ public class Fonts {
     private static String getFontName(int font) {
         String fontName = "";
         switch (font) {
-
             case BANDY_REGULAR:
                 fontName = BANDY_REGULAR_NAME;
                 break;

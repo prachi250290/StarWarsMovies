@@ -8,4 +8,11 @@
     <dimen name="film_view_padding">10dp</dimen>
     <dimen name="title_margin_bottom">20dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="film_details_image_height">130dp</dimen>
+    <dimen name="film_details_title_height">50dp</dimen>
+    <dimen name="textSize_20">20sp</dimen>
+    <dimen name="margin_5">5dp</dimen>
+    <dimen name="margin_10">10dp</dimen>
+    <dimen name="margin_20">20dp</dimen>
+    <dimen name="padding_2">2dp</dimen>
 </resources>

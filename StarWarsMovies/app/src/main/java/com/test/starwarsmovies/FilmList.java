@@ -9,7 +9,6 @@ import java.util.ArrayList;
  */
 public class FilmList {
 
-
     @SerializedName("results")
     private ArrayList<Film> films;
 

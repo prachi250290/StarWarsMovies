@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="horizontal"
     android:padding="@dimen/film_view_padding"
-    android:background="#DDDDDD">
+    android:background="@color/grey">
     
     <ImageView
         android:id="@+id/reporter_image_view"
@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:padding="@dimen/textview_padding_5"
             android:layout_below="@id/film_title_textview"
-            android:textColor="#3c3c41"/>
+            android:textColor="@color/dark_grey"/>
 
         <TextView
             android:id="@+id/release_date_textview"
